@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D55F1B8023CF441600E3C942 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1B7F23CF441600E3C942 /* AppDelegate.swift */; };
 		D55F1B8223CF441600E3C942 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1B8123CF441600E3C942 /* SceneDelegate.swift */; };
-		D55F1B8423CF441600E3C942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1B8323CF441600E3C942 /* ViewController.swift */; };
 		D55F1B8923CF441B00E3C942 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D55F1B8823CF441B00E3C942 /* Assets.xcassets */; };
 		D55F1B8C23CF441B00E3C942 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D55F1B8A23CF441B00E3C942 /* LaunchScreen.storyboard */; };
 		D55F1B9523CF486000E3C942 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1B9423CF486000E3C942 /* EndPointType.swift */; };
@@ -27,13 +26,19 @@
 		D55F1BAE23CF655700E3C942 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BAD23CF655700E3C942 /* ErrorResponse.swift */; };
 		D55F1BB023CF65E200E3C942 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BAF23CF65E200E3C942 /* RegisterResponse.swift */; };
 		D55F1BB423CF6E8F00E3C942 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BB323CF6E8F00E3C942 /* LoginResponse.swift */; };
+		D55F1BBC23CF707100E3C942 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BBA23CF707100E3C942 /* RegisterController.swift */; };
+		D55F1BBD23CF707100E3C942 /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D55F1BBB23CF707100E3C942 /* RegisterController.xib */; };
+		D55F1BC423CF776300E3C942 /* OTPController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BC223CF776300E3C942 /* OTPController.swift */; };
+		D55F1BC523CF776300E3C942 /* OTPController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D55F1BC323CF776300E3C942 /* OTPController.xib */; };
+		D55F1BC723CF77BC00E3C942 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BC623CF77BC00E3C942 /* RegisterViewModel.swift */; };
+		D55F1BC923CF7D1500E3C942 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BC823CF7D1500E3C942 /* OTPViewModel.swift */; };
+		D55F1BCC23CF84E100E3C942 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BCB23CF84E100E3C942 /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D55F1B7C23CF441600E3C942 /* PreTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PreTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D55F1B7F23CF441600E3C942 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D55F1B8123CF441600E3C942 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D55F1B8323CF441600E3C942 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D55F1B8823CF441B00E3C942 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D55F1B8B23CF441B00E3C942 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D55F1B8D23CF441B00E3C942 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +57,13 @@
 		D55F1BAD23CF655700E3C942 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		D55F1BAF23CF65E200E3C942 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		D55F1BB323CF6E8F00E3C942 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		D55F1BBA23CF707100E3C942 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		D55F1BBB23CF707100E3C942 /* RegisterController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
+		D55F1BC223CF776300E3C942 /* OTPController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPController.swift; sourceTree = "<group>"; };
+		D55F1BC323CF776300E3C942 /* OTPController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPController.xib; sourceTree = "<group>"; };
+		D55F1BC623CF77BC00E3C942 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		D55F1BC823CF7D1500E3C942 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
+		D55F1BCB23CF84E100E3C942 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,10 +96,11 @@
 		D55F1B7E23CF441600E3C942 /* PreTest */ = {
 			isa = PBXGroup;
 			children = (
+				D55F1BCA23CF84D700E3C942 /* Common */,
+				D55F1BB523CF705A00E3C942 /* Modules */,
 				D55F1B9323CF485200E3C942 /* Service */,
 				D55F1B7F23CF441600E3C942 /* AppDelegate.swift */,
 				D55F1B8123CF441600E3C942 /* SceneDelegate.swift */,
-				D55F1B8323CF441600E3C942 /* ViewController.swift */,
 				D55F1B8823CF441B00E3C942 /* Assets.xcassets */,
 				D55F1B8A23CF441B00E3C942 /* LaunchScreen.storyboard */,
 				D55F1B8D23CF441B00E3C942 /* Info.plist */,
@@ -123,6 +136,91 @@
 				D55F1BB323CF6E8F00E3C942 /* LoginResponse.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D55F1BB523CF705A00E3C942 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BBE23CF775400E3C942 /* OTPPage */,
+				D55F1BB623CF705A00E3C942 /* RegisterPage */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		D55F1BB623CF705A00E3C942 /* RegisterPage */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BB723CF705A00E3C942 /* ViewModel */,
+				D55F1BB823CF705A00E3C942 /* Model */,
+				D55F1BB923CF705A00E3C942 /* View */,
+			);
+			path = RegisterPage;
+			sourceTree = "<group>";
+		};
+		D55F1BB723CF705A00E3C942 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BC623CF77BC00E3C942 /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D55F1BB823CF705A00E3C942 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D55F1BB923CF705A00E3C942 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BBA23CF707100E3C942 /* RegisterController.swift */,
+				D55F1BBB23CF707100E3C942 /* RegisterController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D55F1BBE23CF775400E3C942 /* OTPPage */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BBF23CF775400E3C942 /* ViewModel */,
+				D55F1BC023CF775400E3C942 /* Model */,
+				D55F1BC123CF775400E3C942 /* View */,
+			);
+			path = OTPPage;
+			sourceTree = "<group>";
+		};
+		D55F1BBF23CF775400E3C942 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BC823CF7D1500E3C942 /* OTPViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D55F1BC023CF775400E3C942 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D55F1BC123CF775400E3C942 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BC223CF776300E3C942 /* OTPController.swift */,
+				D55F1BC323CF776300E3C942 /* OTPController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D55F1BCA23CF84D700E3C942 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BCB23CF84E100E3C942 /* Constant.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +282,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D55F1B8C23CF441B00E3C942 /* LaunchScreen.storyboard in Resources */,
+				D55F1BC523CF776300E3C942 /* OTPController.xib in Resources */,
 				D55F1B8923CF441B00E3C942 /* Assets.xcassets in Resources */,
+				D55F1BBD23CF707100E3C942 /* RegisterController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D55F1BA923CF5D0500E3C942 /* PreTestAPI.swift in Sources */,
+				D55F1BC423CF776300E3C942 /* OTPController.swift in Sources */,
 				D55F1B9923CF48F000E3C942 /* NetworkManager.swift in Sources */,
 				D55F1B9B23CF4AB000E3C942 /* NetworkError.swift in Sources */,
 				D55F1BA123CF4DB800E3C942 /* ParameterEncoding.swift in Sources */,
@@ -205,14 +306,17 @@
 				D55F1B9F23CF4D8500E3C942 /* HTTPTask.swift in Sources */,
 				D55F1BAE23CF655700E3C942 /* ErrorResponse.swift in Sources */,
 				D55F1BA723CF5CC000E3C942 /* NetworkLogger.swift in Sources */,
+				D55F1BC723CF77BC00E3C942 /* RegisterViewModel.swift in Sources */,
+				D55F1BBC23CF707100E3C942 /* RegisterController.swift in Sources */,
 				D55F1BA523CF4E8500E3C942 /* NetworkRouter.swift in Sources */,
 				D55F1BA323CF4E1B00E3C942 /* MultipartFormData.swift in Sources */,
 				D55F1B9523CF486000E3C942 /* EndPointType.swift in Sources */,
-				D55F1B8423CF441600E3C942 /* ViewController.swift in Sources */,
 				D55F1B8023CF441600E3C942 /* AppDelegate.swift in Sources */,
 				D55F1B9723CF488700E3C942 /* HTTPMethod.swift in Sources */,
 				D55F1B8223CF441600E3C942 /* SceneDelegate.swift in Sources */,
+				D55F1BCC23CF84E100E3C942 /* Constant.swift in Sources */,
 				D55F1BB023CF65E200E3C942 /* RegisterResponse.swift in Sources */,
+				D55F1BC923CF7D1500E3C942 /* OTPViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

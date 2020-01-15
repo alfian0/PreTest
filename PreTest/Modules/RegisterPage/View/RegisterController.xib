@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterController" customModule="PreTest" customModuleProvider="target">
+            <connections>
+                <outlet property="country" destination="1Lk-Nx-Los" id="QGK-Sc-ydL"/>
+                <outlet property="password" destination="tBV-Hi-GFG" id="RYE-h5-M5j"/>
+                <outlet property="phoneNumber" destination="NCs-Hi-tn7" id="xlQ-yT-sUC"/>
+                <outlet property="register" destination="2dk-wa-JKM" id="5Ul-jq-tCz"/>
+                <outlet property="scrollView" destination="m5U-bi-pDZ" id="zMI-YR-KaR"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5U-bi-pDZ">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gli-Zh-Ium">
+                            <rect key="frame" x="0.0" y="20" width="320" height="202"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gBH-Ki-VaT">
+                                    <rect key="frame" x="20" y="20" width="280" height="162"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NCs-Hi-tn7">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tBV-Hi-GFG">
+                                            <rect key="frame" x="0.0" y="44" width="280" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Lk-Nx-Los">
+                                            <rect key="frame" x="0.0" y="88" width="280" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dk-wa-JKM">
+                                            <rect key="frame" x="0.0" y="132" width="280" height="30"/>
+                                            <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title="Register">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="gBH-Ki-VaT" firstAttribute="top" secondItem="gli-Zh-Ium" secondAttribute="top" constant="20" symbolic="YES" id="9oL-WV-N0k"/>
+                                <constraint firstAttribute="bottom" secondItem="gBH-Ki-VaT" secondAttribute="bottom" constant="20" symbolic="YES" id="RUN-4z-I06"/>
+                                <constraint firstItem="gBH-Ki-VaT" firstAttribute="leading" secondItem="gli-Zh-Ium" secondAttribute="leading" constant="20" symbolic="YES" id="tAE-TN-av9"/>
+                                <constraint firstAttribute="trailing" secondItem="gBH-Ki-VaT" secondAttribute="trailing" constant="20" symbolic="YES" id="war-pa-Jlp"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="gli-Zh-Ium" firstAttribute="top" secondItem="m5U-bi-pDZ" secondAttribute="top" constant="20" id="9b5-KU-uhJ"/>
+                        <constraint firstAttribute="bottom" secondItem="gli-Zh-Ium" secondAttribute="bottom" constant="346" id="AHJ-eQ-SDk"/>
+                        <constraint firstAttribute="trailing" secondItem="gli-Zh-Ium" secondAttribute="trailing" id="Nfi-Fx-yFE"/>
+                        <constraint firstItem="gli-Zh-Ium" firstAttribute="leading" secondItem="m5U-bi-pDZ" secondAttribute="leading" id="h0U-1d-g8k"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="m5U-bi-pDZ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="9Jd-Ts-9Sy"/>
+                <constraint firstItem="m5U-bi-pDZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="J62-1R-0de"/>
+                <constraint firstItem="m5U-bi-pDZ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="JHW-oI-Ssr"/>
+                <constraint firstItem="m5U-bi-pDZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Yc3-Ue-Uav"/>
+                <constraint firstItem="m5U-bi-pDZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cYg-Rf-pGc"/>
+                <constraint firstAttribute="trailing" secondItem="m5U-bi-pDZ" secondAttribute="trailing" id="ksE-Nd-qkI"/>
+                <constraint firstItem="m5U-bi-pDZ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="mgc-a1-Nxr"/>
+                <constraint firstItem="gli-Zh-Ium" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="qKU-tn-utv"/>
+                <constraint firstItem="m5U-bi-pDZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="s40-55-Xiz"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="138.75" y="105.63380281690141"/>
+        </view>
+    </objects>
+</document>

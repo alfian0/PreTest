@@ -55,7 +55,9 @@ class ProfileController: UIViewController {
     
     @objc
     private func updateCareerTapped(_ sender: UIButton) {
-        navigationController?.pushViewController(CareerController(), animated: true)
+        let viewModel = CareerViewModel(position: "", name: self.viewModel.getCompany(), start: self.viewModel.getStart(), end: self.viewModel.getEnd())
+        let viewController = CareerController(viewModel: viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     @objc

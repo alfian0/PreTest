@@ -11,8 +11,8 @@ import Foundation
 class EducationViewModel {
     weak var delegate: EducationView?
     
-    private var name: String?
-    private var graduation: String?
+    private let name: String?
+    private let graduation: String?
     
     init(name: String?, graduation: String?) {
         self.name = name
@@ -25,6 +25,7 @@ class EducationViewModel {
             delegate?.setupPage(with: .error("All input is required"))
             return
         }
+        self.delegate?.setupPage(with: .loading)
         NetworkManager.instance.requestObject(PreTestAPI.updateEducation(name: name, graduation: graduation), c: ProfileResponse.self) { (result) in
             switch result {
             case .success:

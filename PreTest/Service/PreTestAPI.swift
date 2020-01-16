@@ -16,6 +16,7 @@ enum PreTestAPI {
     case logout
     case login(phone: String, password: String, latlong: String, deviceToken: String)
     case updateEducation(name: String, graduation: String)
+    case updateCareer(position: String, name: String, start: String, end: String)
 }
 
 extension PreTestAPI: EndPointType {
@@ -40,6 +41,8 @@ extension PreTestAPI: EndPointType {
             return "oauth/sign_in"
         case .updateEducation:
             return "profile/education"
+        case .updateCareer:
+            return "profile/career"
         }
     }
     
@@ -81,6 +84,13 @@ extension PreTestAPI: EndPointType {
                 "school_name": name,
                 "graduation_time": graduation
             ]
+        case .updateCareer(let (position, name, start, end)):
+            return [
+                "position": position,
+                "company_name": name,
+                "starting_from": start,
+                "ending_in": end
+            ]
         default:
             return nil
         }
@@ -93,7 +103,8 @@ extension PreTestAPI: EndPointType {
              .otpMatch,
              .logout,
              .login,
-             .updateEducation:
+             .updateEducation,
+             .updateCareer:
             return .post
         default:
             return .get
@@ -107,7 +118,8 @@ extension PreTestAPI: EndPointType {
              .otpMatch,
              .logout,
              .login,
-             .updateEducation:
+             .updateEducation,
+             .updateCareer:
             return .requestParameters(parameters: parameters ?? [:], encoding: .jsonEncoding)
         default:
             return .request
@@ -117,7 +129,8 @@ extension PreTestAPI: EndPointType {
     var header: [String : String]? {
         switch self {
         case .profile,
-             .updateEducation:
+             .updateEducation,
+             .updateCareer:
             let tokenType = UserDefaults.standard.string(forKey: Constant.userDefaults.tokenType) ?? ""
             let accessToken = UserDefaults.standard.string(forKey: Constant.userDefaults.accessToken) ?? ""
             return [

@@ -16,6 +16,7 @@ class EducationController: UIViewController {
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var time: UITextField!
     @IBOutlet weak var update: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     private let datePicker = UIDatePicker()
     private var viewModel: EducationViewModel!
@@ -30,6 +31,10 @@ class EducationController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +43,7 @@ class EducationController: UIViewController {
         name.text = viewModel.getCurrentName()
         time.text = viewModel.getCurrentGraduation()
         time.delegate = self
+        registerKeyboardNotifications()
     }
     
     @objc
@@ -98,5 +104,38 @@ extension EducationController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return false
+    }
+}
+
+// MARK: Handle keyboard on small screen
+extension EducationController {
+    private func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(notification:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
+    @objc
+    private func keyboardWillShow(notification: NSNotification) {
+        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardInfo = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+        let keyboardSize = keyboardInfo.cgRectValue.size
+        var contentInsets = scrollView.contentInset
+        contentInsets.bottom = keyboardSize.height
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    @objc
+    private func keyboardWillHide(notification: NSNotification) {
+        var contentInsets = scrollView.contentInset
+        contentInsets.bottom = 0
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
     }
 }

@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import CoreLocation
 
 class RegisterViewModel {
     weak var delegate: RegisterView?
     private var id: String?
     private var phone: String?
+    private var coordinate: CLLocation?
     
     func register(with phone: String?, password: String?, country: String?) {
         guard let phoneNumber = phone,
@@ -24,7 +26,7 @@ class RegisterViewModel {
         let router = PreTestAPI.register(phone: phoneNumber,
                                          password: password,
                                          country: country,
-                                         latlong: "Setup Later",
+                                         latlong: getCoordinate(),
                                          deviceToken: "Setup Later")
         NetworkManager.instance.requestObject(router, c: RegisterResponse.self) { [weak self] (result) in
             guard let `self` = self else { return }
@@ -45,5 +47,14 @@ class RegisterViewModel {
     
     func getId() -> String {
         return id ?? ""
+    }
+    
+    func setCoordinate(with coordinate: CLLocation) {
+        self.coordinate = coordinate
+    }
+    
+    func getCoordinate() -> String {
+        guard let coordinate = self.coordinate else { return "" }
+        return "\(coordinate.coordinate.latitude),\(coordinate.coordinate.longitude)"
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol LoginView: class {
     func setupPage(with state: PageState)
@@ -29,6 +30,8 @@ class LoginController: UIViewController {
 
         title = "Login"
         login.addTarget(self, action: #selector(loginTapped(_:)), for: .touchUpInside)
+        let location = UserLocationManager.instance
+        location.delegate = self
     }
     
     @objc
@@ -54,5 +57,11 @@ extension LoginController: LoginView {
             default: break
             }
         }
+    }
+}
+
+extension LoginController: UserLocationDelegate {
+    func locationDidUpdateToLocation(location: CLLocation) {
+        viewModel.setCoordinate(with: location)
     }
 }

@@ -42,6 +42,14 @@
 		D55F1BE323D0063A00E3C942 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BE123D0063A00E3C942 /* LoginController.swift */; };
 		D55F1BE423D0063A00E3C942 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D55F1BE223D0063A00E3C942 /* LoginController.xib */; };
 		D55F1BE623D00CEF00E3C942 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BE523D00CEF00E3C942 /* LoginViewModel.swift */; };
+		D55F1BE823D060DE00E3C942 /* UserLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BE723D060DE00E3C942 /* UserLocationManager.swift */; };
+		D55F1BEF23D06A6000E3C942 /* CareerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BED23D06A6000E3C942 /* CareerController.swift */; };
+		D55F1BF023D06A6000E3C942 /* CareerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D55F1BEE23D06A6000E3C942 /* CareerController.xib */; };
+		D55F1BF723D06B1F00E3C942 /* EducationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BF523D06B1F00E3C942 /* EducationController.swift */; };
+		D55F1BF823D06B1F00E3C942 /* EducationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D55F1BF623D06B1F00E3C942 /* EducationController.xib */; };
+		D55F1BFA23D06CF000E3C942 /* EducationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BF923D06CF000E3C942 /* EducationViewModel.swift */; };
+		D55F1BFC23D0721100E3C942 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BFB23D0721100E3C942 /* Date+Extension.swift */; };
+		D55F1BFE23D072A900E3C942 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BFD23D072A900E3C942 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +90,14 @@
 		D55F1BE123D0063A00E3C942 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D55F1BE223D0063A00E3C942 /* LoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = "<group>"; };
 		D55F1BE523D00CEF00E3C942 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		D55F1BE723D060DE00E3C942 /* UserLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationManager.swift; sourceTree = "<group>"; };
+		D55F1BED23D06A6000E3C942 /* CareerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerController.swift; sourceTree = "<group>"; };
+		D55F1BEE23D06A6000E3C942 /* CareerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CareerController.xib; sourceTree = "<group>"; };
+		D55F1BF523D06B1F00E3C942 /* EducationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationController.swift; sourceTree = "<group>"; };
+		D55F1BF623D06B1F00E3C942 /* EducationController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EducationController.xib; sourceTree = "<group>"; };
+		D55F1BF923D06CF000E3C942 /* EducationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationViewModel.swift; sourceTree = "<group>"; };
+		D55F1BFB23D0721100E3C942 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		D55F1BFD23D072A900E3C942 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +177,8 @@
 		D55F1BB523CF705A00E3C942 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D55F1BF123D06B0400E3C942 /* UpdateEducation */,
+				D55F1BE923D06A4500E3C942 /* UpdateCareer */,
 				D55F1BDD23D0062900E3C942 /* Login */,
 				D55F1BCF23CF942700E3C942 /* Profile */,
 				D55F1BBE23CF775400E3C942 /* OTPPage */,
@@ -242,6 +260,9 @@
 			children = (
 				D55F1BCB23CF84E100E3C942 /* Constant.swift */,
 				D55F1BD923CFFB5100E3C942 /* UIImageView+Extension.swift */,
+				D55F1BE723D060DE00E3C942 /* UserLocationManager.swift */,
+				D55F1BFB23D0721100E3C942 /* Date+Extension.swift */,
+				D55F1BFD23D072A900E3C942 /* String+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -314,6 +335,73 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D55F1BE923D06A4500E3C942 /* UpdateCareer */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BEA23D06A4500E3C942 /* ViewModel */,
+				D55F1BEB23D06A4500E3C942 /* Model */,
+				D55F1BEC23D06A4500E3C942 /* View */,
+			);
+			path = UpdateCareer;
+			sourceTree = "<group>";
+		};
+		D55F1BEA23D06A4500E3C942 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D55F1BEB23D06A4500E3C942 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D55F1BEC23D06A4500E3C942 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BED23D06A6000E3C942 /* CareerController.swift */,
+				D55F1BEE23D06A6000E3C942 /* CareerController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D55F1BF123D06B0400E3C942 /* UpdateEducation */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BF223D06B0400E3C942 /* ViewModel */,
+				D55F1BF323D06B0400E3C942 /* Model */,
+				D55F1BF423D06B0400E3C942 /* View */,
+			);
+			path = UpdateEducation;
+			sourceTree = "<group>";
+		};
+		D55F1BF223D06B0400E3C942 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BF923D06CF000E3C942 /* EducationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D55F1BF323D06B0400E3C942 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D55F1BF423D06B0400E3C942 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BF523D06B1F00E3C942 /* EducationController.swift */,
+				D55F1BF623D06B1F00E3C942 /* EducationController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -372,8 +460,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D55F1BF823D06B1F00E3C942 /* EducationController.xib in Resources */,
 				D55F1BD623CF943700E3C942 /* ProfileController.xib in Resources */,
 				D55F1BE423D0063A00E3C942 /* LoginController.xib in Resources */,
+				D55F1BF023D06A6000E3C942 /* CareerController.xib in Resources */,
 				D55F1B8C23CF441B00E3C942 /* LaunchScreen.storyboard in Resources */,
 				D55F1BC523CF776300E3C942 /* OTPController.xib in Resources */,
 				D55F1B8923CF441B00E3C942 /* Assets.xcassets in Resources */,
@@ -388,13 +478,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D55F1BEF23D06A6000E3C942 /* CareerController.swift in Sources */,
 				D55F1BDC23D0030600E3C942 /* LogoutResponse.swift in Sources */,
 				D55F1BD823CFF6F800E3C942 /* ProfileViewModel.swift in Sources */,
 				D55F1BA923CF5D0500E3C942 /* PreTestAPI.swift in Sources */,
 				D55F1BDA23CFFB5100E3C942 /* UIImageView+Extension.swift in Sources */,
 				D55F1BC423CF776300E3C942 /* OTPController.swift in Sources */,
+				D55F1BE823D060DE00E3C942 /* UserLocationManager.swift in Sources */,
 				D55F1B9923CF48F000E3C942 /* NetworkManager.swift in Sources */,
+				D55F1BFE23D072A900E3C942 /* String+Extension.swift in Sources */,
 				D55F1B9B23CF4AB000E3C942 /* NetworkError.swift in Sources */,
+				D55F1BFC23D0721100E3C942 /* Date+Extension.swift in Sources */,
 				D55F1BA123CF4DB800E3C942 /* ParameterEncoding.swift in Sources */,
 				D55F1B9D23CF4CB000E3C942 /* ParameterEncoder.swift in Sources */,
 				D55F1BAB23CF60E100E3C942 /* ContentType.swift in Sources */,
@@ -406,6 +500,7 @@
 				D55F1BC723CF77BC00E3C942 /* RegisterViewModel.swift in Sources */,
 				D55F1BBC23CF707100E3C942 /* RegisterController.swift in Sources */,
 				D55F1BA523CF4E8500E3C942 /* NetworkRouter.swift in Sources */,
+				D55F1BF723D06B1F00E3C942 /* EducationController.swift in Sources */,
 				D55F1BA323CF4E1B00E3C942 /* MultipartFormData.swift in Sources */,
 				D55F1BCE23CF908900E3C942 /* ProfileResponse.swift in Sources */,
 				D55F1B9523CF486000E3C942 /* EndPointType.swift in Sources */,
@@ -414,6 +509,7 @@
 				D55F1B8223CF441600E3C942 /* SceneDelegate.swift in Sources */,
 				D55F1BCC23CF84E100E3C942 /* Constant.swift in Sources */,
 				D55F1BB023CF65E200E3C942 /* RegisterResponse.swift in Sources */,
+				D55F1BFA23D06CF000E3C942 /* EducationViewModel.swift in Sources */,
 				D55F1BE623D00CEF00E3C942 /* LoginViewModel.swift in Sources */,
 				D55F1BC923CF7D1500E3C942 /* OTPViewModel.swift in Sources */,
 				D55F1BD523CF943700E3C942 /* ProfileController.swift in Sources */,

@@ -15,6 +15,7 @@ enum PreTestAPI {
     case profile
     case logout
     case login(phone: String, password: String, latlong: String, deviceToken: String)
+    case updateEducation(name: String, graduation: String)
 }
 
 extension PreTestAPI: EndPointType {
@@ -37,6 +38,8 @@ extension PreTestAPI: EndPointType {
             return "oauth/revoke"
         case .login:
             return "oauth/sign_in"
+        case .updateEducation:
+            return "profile/education"
         }
     }
     
@@ -73,6 +76,11 @@ extension PreTestAPI: EndPointType {
                 "device_token": deviceToken,
                 "device_type": 1
             ]
+        case .updateEducation(let (name, graduation)):
+            return [
+                "school_name": name,
+                "graduation_time": graduation
+            ]
         default:
             return nil
         }
@@ -84,7 +92,8 @@ extension PreTestAPI: EndPointType {
              .otpRequest,
              .otpMatch,
              .logout,
-             .login:
+             .login,
+             .updateEducation:
             return .post
         default:
             return .get
@@ -97,7 +106,8 @@ extension PreTestAPI: EndPointType {
              .otpRequest,
              .otpMatch,
              .logout,
-             .login:
+             .login,
+             .updateEducation:
             return .requestParameters(parameters: parameters ?? [:], encoding: .jsonEncoding)
         default:
             return .request
@@ -106,7 +116,8 @@ extension PreTestAPI: EndPointType {
     
     var header: [String : String]? {
         switch self {
-        case .profile:
+        case .profile,
+             .updateEducation:
             let tokenType = UserDefaults.standard.string(forKey: Constant.userDefaults.tokenType) ?? ""
             let accessToken = UserDefaults.standard.string(forKey: Constant.userDefaults.accessToken) ?? ""
             return [

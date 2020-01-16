@@ -7,16 +7,18 @@
 //
 
 import Foundation
+import CoreLocation
 
 class LoginViewModel {
     weak var delegate: LoginView?
-    
+    private var coordinate: CLLocation?
+
     func login(phone: String?, password: String?){
         guard let phone = phone,
             let password = password else {
             return
         }
-        NetworkManager.instance.requestObject(PreTestAPI.login(phone: phone, password: password, latlong: "Setup Later", deviceToken: "Setup Later"), c: LoginResponse.self) { (result) in
+        NetworkManager.instance.requestObject(PreTestAPI.login(phone: phone, password: password, latlong: getCoordinate(), deviceToken: "Setup Later"), c: LoginResponse.self) { (result) in
             switch result {
             case .success(let response):
                 UserDefaults.standard.set(response.data.user.tokenType, forKey: Constant.userDefaults.tokenType)
@@ -27,5 +29,14 @@ class LoginViewModel {
                 self.delegate?.setupPage(with: .error(error.description))
             }
         }
+    }
+    
+    func setCoordinate(with coordinate: CLLocation) {
+        self.coordinate = coordinate
+    }
+    
+    func getCoordinate() -> String {
+        guard let coordinate = self.coordinate else { return "" }
+        return "\(coordinate.coordinate.latitude),\(coordinate.coordinate.longitude)"
     }
 }

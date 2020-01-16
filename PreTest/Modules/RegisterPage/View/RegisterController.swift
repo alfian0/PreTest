@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 enum PageState {
     case loading
@@ -44,6 +45,8 @@ class RegisterController: UIViewController {
         registerKeyboardNotifications()
         register.addTarget(self, action: #selector(registerTapped(_:)), for: UIControl.Event.touchUpInside)
         login.addTarget(self, action: #selector(loginTapped(_:)), for: .touchUpInside)
+        let location = UserLocationManager.instance
+        location.delegate = self
     }
     
     @objc
@@ -108,5 +111,11 @@ extension RegisterController: RegisterView {
             default: break
             }
         }
+    }
+}
+
+extension RegisterController: UserLocationDelegate {
+    func locationDidUpdateToLocation(location: CLLocation) {
+        viewModel.setCoordinate(with: location)
     }
 }

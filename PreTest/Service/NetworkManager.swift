@@ -55,16 +55,11 @@ struct NetworkManager {
                     }
                 }
             case .failure(let err):
-                switch err {
-                case .authenticationError:
-                    completion(.failure(.authenticationError))
-                default:
-                    if let error = error as NSError?, error.domain == NSURLErrorDomain && error.code != NSURLErrorCancelled {
-                        return
-                    } else {
-                        if let data = data, let response = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
-                            completion(.failure(NetworkError.softError(message: response.error.errors.first ?? err.description)))
-                        }
+                if let error = error as NSError?, error.domain == NSURLErrorDomain && error.code != NSURLErrorCancelled {
+                    return
+                } else {
+                    if let data = data, let response = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                        completion(.failure(NetworkError.softError(message: response.error.errors.first ?? err.description)))
                     }
                 }
             }

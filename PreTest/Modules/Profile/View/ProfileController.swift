@@ -38,6 +38,8 @@ class ProfileController: UIViewController {
         title = "Profile"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(messageTapped(_:)))
         logout.addTarget(self, action: #selector(logoutTapped(_:)), for: .touchUpInside)
+        career.addTarget(self, action: #selector(updateCareerTapped(_:)), for: .touchUpInside)
+        education.addTarget(self, action: #selector(updateEducationTapped(_:)), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,8 +54,25 @@ class ProfileController: UIViewController {
     }
     
     @objc
+    private func updateCareerTapped(_ sender: UIButton) {
+        navigationController?.pushViewController(CareerController(), animated: true)
+    }
+    
+    @objc
+    private func updateEducationTapped(_ sender: UIButton) {
+        let viewModel = EducationViewModel(name: self.viewModel.getSchool(), graduation: self.viewModel.getGraduation())
+        let viewController = EducationController(viewModel: viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @objc
     private func logoutTapped(_ sender: UIButton) {
-        viewModel.logout()
+        let alert = UIAlertController(title: "Warning", message: "Are you sure to logout ?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [weak self] (_) in
+            self?.viewModel.logout()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        self.navigationController?.present(alert, animated: true, completion: nil)
     }
 }
 

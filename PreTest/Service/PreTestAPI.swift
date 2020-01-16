@@ -13,7 +13,7 @@ enum PreTestAPI {
     case otpRequest(phone: String)
     case otpMatch(userId: String, otpCode: String)
     
-
+    case profile
 }
 
 extension PreTestAPI: EndPointType {
@@ -30,6 +30,8 @@ extension PreTestAPI: EndPointType {
             return "register/otp/request"
         case .otpMatch:
             return "register/otp/match"
+        case .profile:
+            return "profile/me"
         }
     }
     
@@ -53,6 +55,8 @@ extension PreTestAPI: EndPointType {
                 "user_id": userId,
                 "otp_code": otpCode
             ]
+        default:
+            return nil
         }
     }
     
@@ -80,6 +84,13 @@ extension PreTestAPI: EndPointType {
     
     var header: [String : String]? {
         switch self {
+        case .profile:
+            let tokenType = UserDefaults.standard.string(forKey: Constant.userDefaults.tokenType) ?? ""
+            let accessToken = UserDefaults.standard.string(forKey: Constant.userDefaults.accessToken) ?? ""
+            return [
+                HTTPHeaderField.authentication.rawValue: tokenType + " " + accessToken,
+                HTTPHeaderField.contentType.rawValue: ContentType.json.rawValue
+            ]
         default:
             return [
                 HTTPHeaderField.contentType.rawValue: ContentType.json.rawValue

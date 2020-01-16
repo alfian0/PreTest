@@ -13,7 +13,8 @@ class OTPViewModel {
     private let phone: String!
     private var id: String?
     
-    init(phone: String) {
+    init(id: String, phone: String) {
+        self.id = id
         self.phone = phone
     }
     
@@ -22,8 +23,7 @@ class OTPViewModel {
         NetworkManager.instance.requestObject(router, c: RegisterResponse.self) { [weak self] (result) in
             guard let `self` = self else { return }
             switch result {
-            case .success(let response):
-                self.id = response.data.user.id
+            case .success: break
             case .failure(let error):
                 self.delegate?.setupPage(with: .error(error.description))
             }

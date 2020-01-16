@@ -10,6 +10,7 @@ import Foundation
 
 class RegisterViewModel {
     weak var delegate: RegisterView?
+    private var id: String?
     private var phone: String?
     
     func register(with phone: String?, password: String?, country: String?) {
@@ -30,6 +31,7 @@ class RegisterViewModel {
             guard let `self` = self else { return }
             switch result {
             case .success(let response):
+                self.id = response.data.user.id
                 self.phone = response.data.user.phone
                 self.delegate?.setupPage(with: .success)
             case .failure(let error):
@@ -40,5 +42,9 @@ class RegisterViewModel {
     
     func getPhoneNumber() -> String {
         return phone ?? ""
+    }
+    
+    func getId() -> String {
+        return id ?? ""
     }
 }

@@ -26,7 +26,7 @@ class RegisterController: UIViewController {
     @IBOutlet weak var register: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    lazy var viewModel: RegisterViewModel = {
+    private lazy var viewModel: RegisterViewModel = {
         let viewModel = RegisterViewModel()
         viewModel.delegate = self
         return viewModel
@@ -91,7 +91,7 @@ extension RegisterController: RegisterView {
             case .loading:
                 self.register.isEnabled = false
             case .success:
-                let viewModel = OTPViewModel(phone: self.viewModel.getPhoneNumber())
+                let viewModel = OTPViewModel(id: self.viewModel.getId(), phone: self.viewModel.getPhoneNumber())
                 let viewController = OTPController(viewModel: viewModel)
                 self.navigationController?.pushViewController(viewController, animated: true)
             case .error(let message):

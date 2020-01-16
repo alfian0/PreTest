@@ -42,7 +42,6 @@ class OTPController: UIViewController {
         super.viewDidLoad()
 
         title = "OTP Verification"
-        viewModel.requestOTP()
         verification.addTarget(self, action: #selector(verificationTapped(_:)), for: .touchUpInside)
         resend.addTarget(self, action: #selector(resendTapped(_:)), for: .touchUpInside)
         first.delegate = self
@@ -77,7 +76,7 @@ extension OTPController: OTPView {
             case .success:
                 self.verification.isEnabled = true
                 self.resend.isEnabled = true
-                self.navigationController?.setViewControllers([UIViewController()], animated: true)
+                self.navigationController?.setViewControllers([ProfileController()], animated: true)
             case .error(let message):
                 let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Oke", style: .default, handler: nil))

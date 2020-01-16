@@ -25,7 +25,7 @@ public struct Media {
         self.key = key
         self.mimeType = "image/jpeg"
         self.filename = "\(arc4random()).jpeg"
-        guard let data = image.jpegData(compressionQuality: 0.7) else { return nil }
+        guard let data = image.jpegData(compressionQuality: 0.1) else { return nil }
         self.data = data
     }
 }

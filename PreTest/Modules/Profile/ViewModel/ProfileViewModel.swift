@@ -9,6 +9,7 @@
 import UIKit
 
 class ProfileViewModel {
+    private var id: String?
     private var name: String?
     private var school: String?
     private var graduation: String?
@@ -21,11 +22,11 @@ class ProfileViewModel {
     weak var delegate: ProfileView?
     
     func fetchProfile() {
-        delegate?.setupPage(with: .loading)
         NetworkManager.instance.requestObject(PreTestAPI.profile, c: ProfileResponse.self) { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
+                    self.id = response.data.user.id
                     self.name = response.data.user.name
                     self.school = response.data.user.education.schoolName
                     self.graduation = response.data.user.education.graduationTime
@@ -55,7 +56,8 @@ class ProfileViewModel {
         delegate?.setupPage(with: .loading)
         NetworkManager.instance.requestObject(PreTestAPI.updateCover(image: media), c: CoverResponse.self) { (result) in
             switch result {
-            case .success:
+            case .success(let response):
+                self.cover = response.data.userPicture.coverPicture.url
                 self.delegate?.setupPage(with: .success)
             case .failure(let error):
                 self.delegate?.setupPage(with: .error(error.description))
@@ -66,7 +68,23 @@ class ProfileViewModel {
     func updateProfile(with image: UIImage) {
         guard let media = Media(withImage: image, forKey: "image") else { return }
         delegate?.setupPage(with: .loading)
-        NetworkManager.instance.requestObject(PreTestAPI.updateProfile(image: media), c: CoverResponse.self) { (result) in
+        NetworkManager.instance.requestObject(PreTestAPI.updateProfile(image: media), c: PhotoResponse.self) { (result) in
+            switch result {
+            case .success(let response):
+                self.profile = response.data.userPicture.picture.url
+                if let id = response.data.userPicture.id {
+                    self.setDefault(with: id)
+                } else {
+                    self.delegate?.setupPage(with: .success)
+                }
+            case .failure(let error):
+                self.delegate?.setupPage(with: .error(error.description))
+            }
+        }
+    }
+    
+    func setDefault(with id: String) {
+        NetworkManager.instance.requestObject(PreTestAPI.setDefault(id: id), c: SuccessResponse.self) { (result) in
             switch result {
             case .success:
                 self.delegate?.setupPage(with: .success)
@@ -87,6 +105,10 @@ class ProfileViewModel {
         UserDefaults.standard.removeObject(forKey: Constant.userDefaults.tokenType)
         UserDefaults.standard.removeObject(forKey: Constant.userDefaults.accessToken)
         UserDefaults.standard.synchronize()
+    }
+    
+    func getId() -> String {
+        return id ?? "-"
     }
     
     func getName() -> String {

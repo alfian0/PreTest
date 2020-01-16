@@ -76,7 +76,9 @@ class ProfileController: UIViewController {
     
     @objc
     private func messageTapped(_ sender: UIBarButtonItem) {
-        
+        let viewModel = MessageViewModel(id: self.viewModel.getId())
+        let viewController = MessageController(viewModel: viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     @objc
@@ -118,15 +120,16 @@ extension ProfileController: ProfileView {
                 let alert = UIAlertController(title: nil, message: "Loading ...", preferredStyle: .alert)
                 alert.show()
             case .success:
-                self.dismiss(animated: true, completion: nil)
-                self.name.text = self.viewModel.getName()
-                self.school.text = self.viewModel.getSchool()
-                self.graduation.text = self.viewModel.getGraduation()
-                self.company.text = self.viewModel.getCompany()
-                self.start.text = self.viewModel.getStart()
-                self.end.text = self.viewModel.getEnd()
-                self.profile.downloaded(from: self.viewModel.getProfileURL(), contentMode: .scaleAspectFit)
-                self.cover.downloaded(from: self.viewModel.getCoverURL(), contentMode: .scaleAspectFill)
+                self.dismiss(animated: true) {
+                    self.name.text = self.viewModel.getName()
+                    self.school.text = self.viewModel.getSchool()
+                    self.graduation.text = self.viewModel.getGraduation()
+                    self.company.text = self.viewModel.getCompany()
+                    self.start.text = self.viewModel.getStart()
+                    self.end.text = self.viewModel.getEnd()
+                    self.profile.downloaded(from: self.viewModel.getProfileURL(), contentMode: .scaleAspectFit)
+                    self.cover.downloaded(from: self.viewModel.getCoverURL(), contentMode: .scaleAspectFill)
+                }
             case .error(let message):
                 self.dismiss(animated: true, completion: nil)
                 let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)

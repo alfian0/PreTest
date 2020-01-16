@@ -19,6 +19,8 @@ enum PreTestAPI {
     case updateCareer(position: String, name: String, start: String, end: String)
     case updateCover(image: Media)
     case updateProfile(image: Media)
+    case setDefault(id: String)
+    case message(id: String, message: String)
 }
 
 extension PreTestAPI: EndPointType {
@@ -49,6 +51,10 @@ extension PreTestAPI: EndPointType {
             return "uploads/cover"
         case .updateProfile:
             return "uploads/profile"
+        case .setDefault:
+            return "uploads/profile/default"
+        case .message:
+            return "message/send"
         }
     }
     
@@ -97,6 +103,15 @@ extension PreTestAPI: EndPointType {
                 "starting_from": start,
                 "ending_in": end
             ]
+        case .setDefault(let id):
+            return [
+                "id": id
+            ]
+        case .message(let (id, message)):
+            return [
+                "user_id": id,
+                "message": message
+            ]
         default:
             return nil
         }
@@ -112,7 +127,9 @@ extension PreTestAPI: EndPointType {
              .updateEducation,
              .updateCareer,
              .updateCover,
-             .updateProfile:
+             .updateProfile,
+             .setDefault,
+             .message:
             return .post
         default:
             return .get
@@ -127,7 +144,9 @@ extension PreTestAPI: EndPointType {
              .logout,
              .login,
              .updateEducation,
-             .updateCareer:
+             .updateCareer,
+             .setDefault,
+             .message:
             return .requestParameters(parameters: parameters ?? [:], encoding: .jsonEncoding)
         case .updateCover(let image):
             var multipartFormData = [MultipartFormData]()
@@ -148,7 +167,9 @@ extension PreTestAPI: EndPointType {
              .updateEducation,
              .updateCareer,
              .updateCover,
-             .updateProfile:
+             .updateProfile,
+             .setDefault,
+             .message:
             let tokenType = UserDefaults.standard.string(forKey: Constant.userDefaults.tokenType) ?? ""
             let accessToken = UserDefaults.standard.string(forKey: Constant.userDefaults.accessToken) ?? ""
             return [

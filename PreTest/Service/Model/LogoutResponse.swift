@@ -11,3 +11,7 @@ import Foundation
 struct LogoutResponse: Codable {
     
 }
+
+struct SuccessResponse: Codable {
+    let data: String?
+}

@@ -30,3 +30,21 @@ struct CoverResponse: Codable {
     }
     let data: Data
 }
+
+struct PhotoResponse: Codable {
+    struct Data: Codable {
+        struct UserPicture: Codable {
+            struct Picture: Codable {
+                let url: String?
+            }
+            let id: String?
+            let picture: Picture
+        }
+        let userPicture: UserPicture
+        
+        private enum CodingKeys: String, CodingKey {
+            case userPicture = "user_picture"
+        }
+    }
+    let data: Data
+}

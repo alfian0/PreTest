@@ -55,6 +55,8 @@
 		D55F1C0423D099BF00E3C942 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1C0323D099BF00E3C942 /* Media.swift */; };
 		D55F1C0623D09BA200E3C942 /* CoverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1C0523D09BA200E3C942 /* CoverResponse.swift */; };
 		D55F1C0823D0A37100E3C942 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1C0723D0A37100E3C942 /* UIAlertController+Extension.swift */; };
+		D55F1C0F23D0B1FE00E3C942 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1C0D23D0B1FE00E3C942 /* MessageController.swift */; };
+		D55F1C1223D0B34000E3C942 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1C1123D0B34000E3C942 /* MessageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +110,8 @@
 		D55F1C0323D099BF00E3C942 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		D55F1C0523D09BA200E3C942 /* CoverResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverResponse.swift; sourceTree = "<group>"; };
 		D55F1C0723D0A37100E3C942 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
+		D55F1C0D23D0B1FE00E3C942 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
+		D55F1C1123D0B34000E3C942 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +192,7 @@
 		D55F1BB523CF705A00E3C942 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D55F1C0923D0B1D400E3C942 /* Message */,
 				D55F1BF123D06B0400E3C942 /* UpdateEducation */,
 				D55F1BE923D06A4500E3C942 /* UpdateCareer */,
 				D55F1BDD23D0062900E3C942 /* Login */,
@@ -417,6 +422,39 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D55F1C0923D0B1D400E3C942 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1C0A23D0B1D400E3C942 /* ViewModel */,
+				D55F1C0B23D0B1D400E3C942 /* Model */,
+				D55F1C0C23D0B1D400E3C942 /* View */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		D55F1C0A23D0B1D400E3C942 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1C1123D0B34000E3C942 /* MessageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D55F1C0B23D0B1D400E3C942 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D55F1C0C23D0B1D400E3C942 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1C0D23D0B1FE00E3C942 /* MessageController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -497,6 +535,7 @@
 				D55F1BEF23D06A6000E3C942 /* CareerController.swift in Sources */,
 				D55F1BDC23D0030600E3C942 /* LogoutResponse.swift in Sources */,
 				D55F1BD823CFF6F800E3C942 /* ProfileViewModel.swift in Sources */,
+				D55F1C1223D0B34000E3C942 /* MessageViewModel.swift in Sources */,
 				D55F1BA923CF5D0500E3C942 /* PreTestAPI.swift in Sources */,
 				D55F1BDA23CFFB5100E3C942 /* UIImageView+Extension.swift in Sources */,
 				D55F1BC423CF776300E3C942 /* OTPController.swift in Sources */,
@@ -506,6 +545,7 @@
 				D55F1B9B23CF4AB000E3C942 /* NetworkError.swift in Sources */,
 				D55F1BFC23D0721100E3C942 /* Date+Extension.swift in Sources */,
 				D55F1C0623D09BA200E3C942 /* CoverResponse.swift in Sources */,
+				D55F1C0F23D0B1FE00E3C942 /* MessageController.swift in Sources */,
 				D55F1BA123CF4DB800E3C942 /* ParameterEncoding.swift in Sources */,
 				D55F1B9D23CF4CB000E3C942 /* ParameterEncoder.swift in Sources */,
 				D55F1BAB23CF60E100E3C942 /* ContentType.swift in Sources */,

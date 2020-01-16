@@ -36,8 +36,30 @@ class ProfileViewModel {
                     self.cover = response.data.user.coverPicture.url
                     self.delegate?.setupPage(with: .success)
                 case .failure(let error):
-                    self.delegate?.setupPage(with: .error(error.description))
+                    switch error {
+                    case .authenticationError:
+                        UserDefaults.standard.removeObject(forKey: Constant.userDefaults.tokenType)
+                        UserDefaults.standard.removeObject(forKey: Constant.userDefaults.accessToken)
+                        UserDefaults.standard.synchronize()
+                        self.delegate?.onLogout()
+                    default:
+                        self.delegate?.setupPage(with: .error(error.description))
+                    }
                 }
+            }
+        }
+    }
+    
+    func logout() {
+        NetworkManager.instance.requestObject(PreTestAPI.logout, c: LogoutResponse.self) { (result) in
+            switch result {
+            case .success:
+                UserDefaults.standard.removeObject(forKey: Constant.userDefaults.tokenType)
+                UserDefaults.standard.removeObject(forKey: Constant.userDefaults.accessToken)
+                UserDefaults.standard.synchronize()
+                self.delegate?.onLogout()
+            case .failure(let error):
+                self.delegate?.setupPage(with: .error(error.description))
             }
         }
     }

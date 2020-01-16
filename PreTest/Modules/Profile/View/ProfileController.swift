@@ -10,6 +10,7 @@ import UIKit
 
 protocol ProfileView: class {
     func setupPage(with state: PageState)
+    func onLogout()
 }
 
 class ProfileController: UIViewController {
@@ -52,27 +53,35 @@ class ProfileController: UIViewController {
     
     @objc
     private func logoutTapped(_ sender: UIButton) {
-        
+        viewModel.logout()
     }
 }
 
 extension ProfileController: ProfileView {
+    func onLogout() {
+        DispatchQueue.main.async {
+            self.navigationController?.setViewControllers([RegisterController()], animated: false)
+        }
+    }
+    
     func setupPage(with state: PageState) {
-        switch state {
-        case .success:
-            name.text = viewModel.getName()
-            school.text = viewModel.getSchool()
-            graduation.text = viewModel.getGraduation()
-            company.text = viewModel.getCompany()
-            start.text = viewModel.getStart()
-            end.text = viewModel.getEnd()
-            profile.downloaded(from: viewModel.getProfileURL(), contentMode: .scaleAspectFit)
-            cover.downloaded(from: viewModel.getCoverURL(), contentMode: .scaleAspectFill)
-        case .error(let message):
-            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Oke", style: .default, handler: nil))
-            self.navigationController?.present(alert, animated: true, completion: nil)
-        default: break
+        DispatchQueue.main.async {
+            switch state {
+            case .success:
+                self.name.text = self.viewModel.getName()
+                self.school.text = self.viewModel.getSchool()
+                self.graduation.text = self.viewModel.getGraduation()
+                self.company.text = self.viewModel.getCompany()
+                self.start.text = self.viewModel.getStart()
+                self.end.text = self.viewModel.getEnd()
+                self.profile.downloaded(from: self.viewModel.getProfileURL(), contentMode: .scaleAspectFit)
+                self.cover.downloaded(from: self.viewModel.getCoverURL(), contentMode: .scaleAspectFill)
+            case .error(let message):
+                let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Oke", style: .default, handler: nil))
+                self.navigationController?.present(alert, animated: true, completion: nil)
+            default: break
+            }
         }
     }
 }

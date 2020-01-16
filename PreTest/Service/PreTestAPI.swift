@@ -9,11 +9,12 @@
 import Foundation
 
 enum PreTestAPI {
-    case register(phone: String, password: String, country: String, latlong: String, deviceToken: String, deviceType: Int)
+    case register(phone: String, password: String, country: String, latlong: String, deviceToken: String)
     case otpRequest(phone: String)
     case otpMatch(userId: String, otpCode: String)
-    
     case profile
+    case logout
+    case login(phone: String, password: String, latlong: String, deviceToken: String)
 }
 
 extension PreTestAPI: EndPointType {
@@ -32,19 +33,23 @@ extension PreTestAPI: EndPointType {
             return "register/otp/match"
         case .profile:
             return "profile/me"
+        case .logout:
+            return "oauth/revoke"
+        case .login:
+            return "oauth/sign_in"
         }
     }
     
     var parameters: [String : Any]? {
         switch self {
-        case .register(let (phone, password, country, latlong, deviceToken, deviceType)):
+        case .register(let (phone, password, country, latlong, deviceToken)):
             return [
                 "phone": phone,
                 "password": password,
                 "country": country,
                 "latlong": latlong,
                 "device_token": deviceToken,
-                "device_type": deviceType
+                "device_type": 1
             ]
         case .otpRequest(let phone):
             return [
@@ -55,6 +60,19 @@ extension PreTestAPI: EndPointType {
                 "user_id": userId,
                 "otp_code": otpCode
             ]
+        case .logout:
+            return [
+                "access_token": UserDefaults.standard.string(forKey: Constant.userDefaults.accessToken) ?? "",
+                "confirm": 1
+            ]
+        case.login(let (phone, password, latlong, deviceToken)):
+            return [
+                "phone": phone,
+                "password": password,
+                "latlong": latlong,
+                "device_token": deviceToken,
+                "device_type": 1
+            ]
         default:
             return nil
         }
@@ -64,7 +82,9 @@ extension PreTestAPI: EndPointType {
         switch self {
         case .register,
              .otpRequest,
-             .otpMatch:
+             .otpMatch,
+             .logout,
+             .login:
             return .post
         default:
             return .get
@@ -75,7 +95,9 @@ extension PreTestAPI: EndPointType {
         switch self {
         case .register,
              .otpRequest,
-             .otpMatch:
+             .otpMatch,
+             .logout,
+             .login:
             return .requestParameters(parameters: parameters ?? [:], encoding: .jsonEncoding)
         default:
             return .request

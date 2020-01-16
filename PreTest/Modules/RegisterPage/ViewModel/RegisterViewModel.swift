@@ -24,9 +24,8 @@ class RegisterViewModel {
         let router = PreTestAPI.register(phone: phoneNumber,
                                          password: password,
                                          country: country,
-                                         latlong: "set up later",
-                                         deviceToken: "set up later",
-                                         deviceType: 0)
+                                         latlong: "Setup Later",
+                                         deviceToken: "Setup Later")
         NetworkManager.instance.requestObject(router, c: RegisterResponse.self) { [weak self] (result) in
             guard let `self` = self else { return }
             switch result {

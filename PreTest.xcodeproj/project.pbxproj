@@ -38,6 +38,10 @@
 		D55F1BD623CF943700E3C942 /* ProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D55F1BD423CF943700E3C942 /* ProfileController.xib */; };
 		D55F1BD823CFF6F800E3C942 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BD723CFF6F800E3C942 /* ProfileViewModel.swift */; };
 		D55F1BDA23CFFB5100E3C942 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BD923CFFB5100E3C942 /* UIImageView+Extension.swift */; };
+		D55F1BDC23D0030600E3C942 /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BDB23D0030600E3C942 /* LogoutResponse.swift */; };
+		D55F1BE323D0063A00E3C942 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BE123D0063A00E3C942 /* LoginController.swift */; };
+		D55F1BE423D0063A00E3C942 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D55F1BE223D0063A00E3C942 /* LoginController.xib */; };
+		D55F1BE623D00CEF00E3C942 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BE523D00CEF00E3C942 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +78,10 @@
 		D55F1BD423CF943700E3C942 /* ProfileController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileController.xib; sourceTree = "<group>"; };
 		D55F1BD723CFF6F800E3C942 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		D55F1BD923CFFB5100E3C942 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		D55F1BDB23D0030600E3C942 /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
+		D55F1BE123D0063A00E3C942 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		D55F1BE223D0063A00E3C942 /* LoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = "<group>"; };
+		D55F1BE523D00CEF00E3C942 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +153,7 @@
 				D55F1BAF23CF65E200E3C942 /* RegisterResponse.swift */,
 				D55F1BB323CF6E8F00E3C942 /* LoginResponse.swift */,
 				D55F1BCD23CF908900E3C942 /* ProfileResponse.swift */,
+				D55F1BDB23D0030600E3C942 /* LogoutResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,6 +161,7 @@
 		D55F1BB523CF705A00E3C942 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D55F1BDD23D0062900E3C942 /* Login */,
 				D55F1BCF23CF942700E3C942 /* Profile */,
 				D55F1BBE23CF775400E3C942 /* OTPPage */,
 				D55F1BB623CF705A00E3C942 /* RegisterPage */,
@@ -270,6 +280,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D55F1BDD23D0062900E3C942 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BDE23D0062900E3C942 /* ViewModel */,
+				D55F1BDF23D0062900E3C942 /* Model */,
+				D55F1BE023D0062900E3C942 /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D55F1BDE23D0062900E3C942 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BE523D00CEF00E3C942 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D55F1BDF23D0062900E3C942 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D55F1BE023D0062900E3C942 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D55F1BE123D0063A00E3C942 /* LoginController.swift */,
+				D55F1BE223D0063A00E3C942 /* LoginController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -329,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D55F1BD623CF943700E3C942 /* ProfileController.xib in Resources */,
+				D55F1BE423D0063A00E3C942 /* LoginController.xib in Resources */,
 				D55F1B8C23CF441B00E3C942 /* LaunchScreen.storyboard in Resources */,
 				D55F1BC523CF776300E3C942 /* OTPController.xib in Resources */,
 				D55F1B8923CF441B00E3C942 /* Assets.xcassets in Resources */,
@@ -343,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D55F1BDC23D0030600E3C942 /* LogoutResponse.swift in Sources */,
 				D55F1BD823CFF6F800E3C942 /* ProfileViewModel.swift in Sources */,
 				D55F1BA923CF5D0500E3C942 /* PreTestAPI.swift in Sources */,
 				D55F1BDA23CFFB5100E3C942 /* UIImageView+Extension.swift in Sources */,
@@ -355,6 +401,7 @@
 				D55F1BB423CF6E8F00E3C942 /* LoginResponse.swift in Sources */,
 				D55F1B9F23CF4D8500E3C942 /* HTTPTask.swift in Sources */,
 				D55F1BAE23CF655700E3C942 /* ErrorResponse.swift in Sources */,
+				D55F1BE323D0063A00E3C942 /* LoginController.swift in Sources */,
 				D55F1BA723CF5CC000E3C942 /* NetworkLogger.swift in Sources */,
 				D55F1BC723CF77BC00E3C942 /* RegisterViewModel.swift in Sources */,
 				D55F1BBC23CF707100E3C942 /* RegisterController.swift in Sources */,
@@ -367,6 +414,7 @@
 				D55F1B8223CF441600E3C942 /* SceneDelegate.swift in Sources */,
 				D55F1BCC23CF84E100E3C942 /* Constant.swift in Sources */,
 				D55F1BB023CF65E200E3C942 /* RegisterResponse.swift in Sources */,
+				D55F1BE623D00CEF00E3C942 /* LoginViewModel.swift in Sources */,
 				D55F1BC923CF7D1500E3C942 /* OTPViewModel.swift in Sources */,
 				D55F1BD523CF943700E3C942 /* ProfileController.swift in Sources */,
 			);

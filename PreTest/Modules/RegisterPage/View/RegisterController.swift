@@ -24,6 +24,7 @@ class RegisterController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var country: UITextField!
     @IBOutlet weak var register: UIButton!
+    @IBOutlet weak var login: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
     private lazy var viewModel: RegisterViewModel = {
@@ -42,11 +43,17 @@ class RegisterController: UIViewController {
         title = "Register"
         registerKeyboardNotifications()
         register.addTarget(self, action: #selector(registerTapped(_:)), for: UIControl.Event.touchUpInside)
+        login.addTarget(self, action: #selector(loginTapped(_:)), for: .touchUpInside)
     }
     
     @objc
     private func registerTapped(_ sender: UIButton) {
         viewModel.register(with: phoneNumber.text, password: password.text, country: country.text)
+    }
+    
+    @objc
+    private func loginTapped(_ sender: UIButton) {
+        navigationController?.pushViewController(LoginController(), animated: true)
     }
 }
 

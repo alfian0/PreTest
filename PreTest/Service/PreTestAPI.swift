@@ -17,6 +17,8 @@ enum PreTestAPI {
     case login(phone: String, password: String, latlong: String, deviceToken: String)
     case updateEducation(name: String, graduation: String)
     case updateCareer(position: String, name: String, start: String, end: String)
+    case updateCover(image: Media)
+    case updateProfile(image: Media)
 }
 
 extension PreTestAPI: EndPointType {
@@ -43,6 +45,10 @@ extension PreTestAPI: EndPointType {
             return "profile/education"
         case .updateCareer:
             return "profile/career"
+        case .updateCover:
+            return "uploads/cover"
+        case .updateProfile:
+            return "uploads/profile"
         }
     }
     
@@ -104,7 +110,9 @@ extension PreTestAPI: EndPointType {
              .logout,
              .login,
              .updateEducation,
-             .updateCareer:
+             .updateCareer,
+             .updateCover,
+             .updateProfile:
             return .post
         default:
             return .get
@@ -121,6 +129,14 @@ extension PreTestAPI: EndPointType {
              .updateEducation,
              .updateCareer:
             return .requestParameters(parameters: parameters ?? [:], encoding: .jsonEncoding)
+        case .updateCover(let image):
+            var multipartFormData = [MultipartFormData]()
+            multipartFormData.append(MultipartFormData(provider: .data(image.data), name: image.key, filename: image.filename, mimeType: image.mimeType))
+            return .uploadMultipart(multipartFormData: multipartFormData)
+        case .updateProfile(let image):
+            var multipartFormData = [MultipartFormData]()
+            multipartFormData.append(MultipartFormData(provider: .data(image.data), name: image.key, filename: image.filename, mimeType: image.mimeType))
+            return .uploadMultipart(multipartFormData: multipartFormData)
         default:
             return .request
         }
@@ -130,7 +146,9 @@ extension PreTestAPI: EndPointType {
         switch self {
         case .profile,
              .updateEducation,
-             .updateCareer:
+             .updateCareer,
+             .updateCover,
+             .updateProfile:
             let tokenType = UserDefaults.standard.string(forKey: Constant.userDefaults.tokenType) ?? ""
             let accessToken = UserDefaults.standard.string(forKey: Constant.userDefaults.accessToken) ?? ""
             return [

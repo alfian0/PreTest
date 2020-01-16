@@ -51,6 +51,10 @@
 		D55F1BFC23D0721100E3C942 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BFB23D0721100E3C942 /* Date+Extension.swift */; };
 		D55F1BFE23D072A900E3C942 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BFD23D072A900E3C942 /* String+Extension.swift */; };
 		D55F1C0023D0763000E3C942 /* CareerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1BFF23D0763000E3C942 /* CareerViewModel.swift */; };
+		D55F1C0223D0941100E3C942 /* AttachmentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1C0123D0941100E3C942 /* AttachmentHandler.swift */; };
+		D55F1C0423D099BF00E3C942 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1C0323D099BF00E3C942 /* Media.swift */; };
+		D55F1C0623D09BA200E3C942 /* CoverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1C0523D09BA200E3C942 /* CoverResponse.swift */; };
+		D55F1C0823D0A37100E3C942 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F1C0723D0A37100E3C942 /* UIAlertController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +104,10 @@
 		D55F1BFB23D0721100E3C942 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		D55F1BFD23D072A900E3C942 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D55F1BFF23D0763000E3C942 /* CareerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerViewModel.swift; sourceTree = "<group>"; };
+		D55F1C0123D0941100E3C942 /* AttachmentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentHandler.swift; sourceTree = "<group>"; };
+		D55F1C0323D099BF00E3C942 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		D55F1C0523D09BA200E3C942 /* CoverResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverResponse.swift; sourceTree = "<group>"; };
+		D55F1C0723D0A37100E3C942 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +180,7 @@
 				D55F1BB323CF6E8F00E3C942 /* LoginResponse.swift */,
 				D55F1BCD23CF908900E3C942 /* ProfileResponse.swift */,
 				D55F1BDB23D0030600E3C942 /* LogoutResponse.swift */,
+				D55F1C0523D09BA200E3C942 /* CoverResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -265,6 +274,9 @@
 				D55F1BE723D060DE00E3C942 /* UserLocationManager.swift */,
 				D55F1BFB23D0721100E3C942 /* Date+Extension.swift */,
 				D55F1BFD23D072A900E3C942 /* String+Extension.swift */,
+				D55F1C0123D0941100E3C942 /* AttachmentHandler.swift */,
+				D55F1C0323D099BF00E3C942 /* Media.swift */,
+				D55F1C0723D0A37100E3C942 /* UIAlertController+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -481,6 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D55F1C0423D099BF00E3C942 /* Media.swift in Sources */,
 				D55F1BEF23D06A6000E3C942 /* CareerController.swift in Sources */,
 				D55F1BDC23D0030600E3C942 /* LogoutResponse.swift in Sources */,
 				D55F1BD823CFF6F800E3C942 /* ProfileViewModel.swift in Sources */,
@@ -492,6 +505,7 @@
 				D55F1BFE23D072A900E3C942 /* String+Extension.swift in Sources */,
 				D55F1B9B23CF4AB000E3C942 /* NetworkError.swift in Sources */,
 				D55F1BFC23D0721100E3C942 /* Date+Extension.swift in Sources */,
+				D55F1C0623D09BA200E3C942 /* CoverResponse.swift in Sources */,
 				D55F1BA123CF4DB800E3C942 /* ParameterEncoding.swift in Sources */,
 				D55F1B9D23CF4CB000E3C942 /* ParameterEncoder.swift in Sources */,
 				D55F1BAB23CF60E100E3C942 /* ContentType.swift in Sources */,
@@ -505,6 +519,7 @@
 				D55F1BA523CF4E8500E3C942 /* NetworkRouter.swift in Sources */,
 				D55F1BF723D06B1F00E3C942 /* EducationController.swift in Sources */,
 				D55F1BA323CF4E1B00E3C942 /* MultipartFormData.swift in Sources */,
+				D55F1C0823D0A37100E3C942 /* UIAlertController+Extension.swift in Sources */,
 				D55F1BCE23CF908900E3C942 /* ProfileResponse.swift in Sources */,
 				D55F1B9523CF486000E3C942 /* EndPointType.swift in Sources */,
 				D55F1B8023CF441600E3C942 /* AppDelegate.swift in Sources */,
@@ -516,6 +531,7 @@
 				D55F1BE623D00CEF00E3C942 /* LoginViewModel.swift in Sources */,
 				D55F1BC923CF7D1500E3C942 /* OTPViewModel.swift in Sources */,
 				D55F1C0023D0763000E3C942 /* CareerViewModel.swift in Sources */,
+				D55F1C0223D0941100E3C942 /* AttachmentHandler.swift in Sources */,
 				D55F1BD523CF943700E3C942 /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

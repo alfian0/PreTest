@@ -89,7 +89,7 @@ extension EducationController: EducationView {
                 self.update.isEnabled = true
                 let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Oke", style: .default, handler: nil))
-                self.navigationController?.present(alert, animated: true, completion: nil)
+                alert.show()
             default: break
             }
         }

@@ -25,11 +25,25 @@ class ProfileController: UIViewController {
     @IBOutlet weak var education: UIButton!
     @IBOutlet weak var career: UIButton!
     @IBOutlet weak var logout: UIButton!
+    @IBOutlet weak var editCover: UIButton!
+    @IBOutlet weak var editProfile: UIButton!
     
     private lazy var viewModel: ProfileViewModel = {
         let viewModel = ProfileViewModel()
         viewModel.delegate = self
         return viewModel
+    }()
+    
+    private lazy var attachmentCover: AttachmentHandler = {
+        let attachment = AttachmentHandler(items: [.camera, .photoLibrary])
+        attachment.delegate = self
+        return attachment
+    }()
+    
+    private lazy var attachmentProfile: AttachmentHandler = {
+        let attachment = AttachmentHandler(items: [.camera, .photoLibrary])
+        attachment.delegate = self
+        return attachment
     }()
     
     override func viewDidLoad() {
@@ -40,12 +54,24 @@ class ProfileController: UIViewController {
         logout.addTarget(self, action: #selector(logoutTapped(_:)), for: .touchUpInside)
         career.addTarget(self, action: #selector(updateCareerTapped(_:)), for: .touchUpInside)
         education.addTarget(self, action: #selector(updateEducationTapped(_:)), for: .touchUpInside)
+        editCover.addTarget(self, action: #selector(coverTapped(_:)), for: .touchUpInside)
+        editProfile.addTarget(self, action: #selector(profileTapped(_:)), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         viewModel.fetchProfile()
+    }
+    
+    @objc
+    private func coverTapped(_ sender: UIBarButtonItem) {
+        attachmentCover.showAttachmentActionSheet(viewController: self)
+    }
+    
+    @objc
+    private func profileTapped(_ sender: UIBarButtonItem) {
+        attachmentProfile.showAttachmentActionSheet(viewController: self)
     }
     
     @objc
@@ -74,7 +100,7 @@ class ProfileController: UIViewController {
             self?.viewModel.logout()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        self.navigationController?.present(alert, animated: true, completion: nil)
+        alert.show()
     }
 }
 
@@ -88,7 +114,11 @@ extension ProfileController: ProfileView {
     func setupPage(with state: PageState) {
         DispatchQueue.main.async {
             switch state {
+            case .loading:
+                let alert = UIAlertController(title: nil, message: "Loading ...", preferredStyle: .alert)
+                alert.show()
             case .success:
+                self.dismiss(animated: true, completion: nil)
                 self.name.text = self.viewModel.getName()
                 self.school.text = self.viewModel.getSchool()
                 self.graduation.text = self.viewModel.getGraduation()
@@ -98,11 +128,25 @@ extension ProfileController: ProfileView {
                 self.profile.downloaded(from: self.viewModel.getProfileURL(), contentMode: .scaleAspectFit)
                 self.cover.downloaded(from: self.viewModel.getCoverURL(), contentMode: .scaleAspectFill)
             case .error(let message):
+                self.dismiss(animated: true, completion: nil)
                 let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Oke", style: .default, handler: nil))
-                self.navigationController?.present(alert, animated: true, completion: nil)
+                alert.show()
             default: break
             }
+        }
+    }
+}
+
+extension ProfileController: AttachmentHandlerDelegate {
+    func didSelectFile(with url: URL, attachment: AttachmentHandler) {
+        guard let image = UIImage(contentsOfFile: url.path) else { return }
+        if attachment == attachmentCover {
+            cover.image = image
+            viewModel.updateCover(with: image)
+        } else if attachment == attachmentProfile {
+            profile.image = image
+            viewModel.updateProfile(with: image)
         }
     }
 }

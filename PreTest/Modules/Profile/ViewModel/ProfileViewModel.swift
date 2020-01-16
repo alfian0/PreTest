@@ -6,7 +6,7 @@
 //  Copyright © 2020 alpiopio. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ProfileViewModel {
     private var name: String?
@@ -46,6 +46,32 @@ class ProfileViewModel {
                         self.delegate?.setupPage(with: .error(error.description))
                     }
                 }
+            }
+        }
+    }
+    
+    func updateCover(with image: UIImage) {
+        guard let media = Media(withImage: image, forKey: "image") else { return }
+        delegate?.setupPage(with: .loading)
+        NetworkManager.instance.requestObject(PreTestAPI.updateCover(image: media), c: CoverResponse.self) { (result) in
+            switch result {
+            case .success:
+                self.delegate?.setupPage(with: .success)
+            case .failure(let error):
+                self.delegate?.setupPage(with: .error(error.description))
+            }
+        }
+    }
+    
+    func updateProfile(with image: UIImage) {
+        guard let media = Media(withImage: image, forKey: "image") else { return }
+        delegate?.setupPage(with: .loading)
+        NetworkManager.instance.requestObject(PreTestAPI.updateProfile(image: media), c: CoverResponse.self) { (result) in
+            switch result {
+            case .success:
+                self.delegate?.setupPage(with: .success)
+            case .failure(let error):
+                self.delegate?.setupPage(with: .error(error.description))
             }
         }
     }

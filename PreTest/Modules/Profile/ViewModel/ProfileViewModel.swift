@@ -120,7 +120,7 @@ class ProfileViewModel {
     }
     
     func getGraduation() -> String {
-        return graduation ?? "-"
+        return graduation?.toDate(dateFormat: "yyyy-MM-dd")?.toString(dateFormat: "dd-MM-yyyy") ?? "-"
     }
     
     func getCompany() -> String {
@@ -128,11 +128,11 @@ class ProfileViewModel {
     }
     
     func getStart() -> String {
-        return start ?? "-"
+        return start?.toDate(dateFormat: "yyyy-MM-dd")?.toString(dateFormat: "dd-MM-yyyy") ?? "-"
     }
     
     func getEnd() -> String {
-        return end ?? "-"
+        return end?.toDate(dateFormat: "yyyy-MM-dd")?.toString(dateFormat: "dd-MM-yyyy") ?? "-"
     }
     
     func getProfileURL() -> String {

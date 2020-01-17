@@ -41,6 +41,6 @@ class EducationViewModel {
     }
     
     func getCurrentGraduation() -> String? {
-        return graduation?.toDate(dateFormat: "yyyy-MM-dd")?.toString(dateFormat: "dd-MM-yyyy")
+        return graduation
     }
 }

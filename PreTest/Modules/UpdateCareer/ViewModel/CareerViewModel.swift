@@ -50,10 +50,10 @@ class CareerViewModel {
     }
     
     func getStart() -> String? {
-        return start?.toDate(dateFormat: "yyyy-MM-dd")?.toString(dateFormat: "dd-MM-yyyy")
+        return start
     }
     
     func getEnd() -> String? {
-        return end?.toDate(dateFormat: "yyyy-MM-dd")?.toString(dateFormat: "dd-MM-yyyy")
+        return end
     }
 }

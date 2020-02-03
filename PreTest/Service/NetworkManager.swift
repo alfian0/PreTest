@@ -31,6 +31,11 @@ struct NetworkManager {
             case .success:
                 if let data = data, error == nil {
                     do {
+                        // MARK: We can use keyEncodingStrategy for simplify codable model
+                        /**
+                            let encoder = JSONEncoder()
+                            encoder.keyEncodingStrategy = .convertToSnakeCase
+                        */
                         let data = try JSONDecoder().decode(c, from: data)
                         completion(.success(data))
                     } catch let DecodingError.dataCorrupted(context) {
